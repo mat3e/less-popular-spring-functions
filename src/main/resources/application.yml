@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: 'jdbc:h2:file:./database;CASE_INSENSITIVE_IDENTIFIERS=true'
+    username: 'sa'
+    password: ''
+  main:
+    allow-bean-definition-overriding: true # todo: fix bean conflicts and skip that
+
+springtricks.module-number: 0

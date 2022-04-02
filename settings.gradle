@@ -1,0 +1,9 @@
+rootProject.name = 'less-popular-spring-functions'
+include '0-package-private-ftw'
+include '1-less-vendor-locking'
+include '2-validation'
+include '3-data-jdbc'
+include '4-projections'
+include '5-data-rest'
+include '6-events'
+
