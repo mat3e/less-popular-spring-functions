@@ -13,3 +13,25 @@ This project
 * Still with Spring Data
 * No JPA, no "manual" mappings, fancy REST (HATEOAS)
 * And MOAR!
+
+## Intro
+
+Presentation with no slides? OK...
+
+### But no memes?
+
+![observe meme](./img/observe.jpg)
+
+### Who am I?
+
+* [linkedin.com/in/mateusz-chrzonstowski](https://www.linkedin.com/in/mateusz-chrzonstowski) // coding for $$$ since
+  2013
+* [twitter.com/\_mat3e\_](https://twitter.com/_mat3e_) // code, MMA, Dragon Ball
+* [github.com/mat3e](https://github.com/mat3e) // coding, giving tech talks
+
+### [github.com/mat3e/less-popular-spring-functions](https://github.com/mat3e/less-popular-spring-functions)
+
+### Who are _they_?
+
+* Rod Johnson - PhD in 19th-century piano music
+* Adrian Colyer - pioneer of Aspect-oriented programming tools 
