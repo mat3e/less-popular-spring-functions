@@ -4,9 +4,13 @@
 
 * Spring is great with a default Java access
 * Little to nothing needs to be public (e.g. `@Transactional` and `@EventListener`)
-* Register main service in each package ([Fowler's Service Layer](https://martinfowler.com/eaaCatalog/serviceLayer.html), [Nabrdalik's mid-sized building blocks](https://www.youtube.com/watch?v=KrLFs6f2bOA))
+* Register main service in each package
+   * Fowler's [Service Layer](https://martinfowler.com/eaaCatalog/serviceLayer.html)
+   * Nabrdalik's [mid-sized building blocks](https://www.youtube.com/watch?v=KrLFs6f2bOA)
+   * [PL] Krzysztof Ślusarski's [_Porty, adaptery, CQRS, Event Sourcing, DDD… w Springu?_](https://www.youtube.com/watch?v=Da42_gVqDKE)
 * We shouldn't put internal "helper" services (mappers, generators, etc.) in context. Create them by hand and make
     package-private (internal implementation details)!
+* You might still use (`public`) interfaces and make all the implementations with package-private access and Spring 
 
 Additional info
 > Spring Boot registers beans starting from the main class package. It's also possible to use the same package in different modules

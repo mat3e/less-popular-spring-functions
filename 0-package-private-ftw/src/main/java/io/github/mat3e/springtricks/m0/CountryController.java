@@ -10,15 +10,15 @@ import java.util.Locale;
 @RequestMapping("/api/countries")
 @RequiredArgsConstructor
 class CountryController {
-    private final CountryService service;
+    private final CountryFacade facade;
 
     @GetMapping("/{code}")
     ResponseEntity<CountryDto> getCountry(@PathVariable String code) {
-        return ResponseEntity.of(service.findByCode(code));
+        return ResponseEntity.of(facade.findByCode(code));
     }
 
     @GetMapping(path = "/{code}", params = "locale")
     ResponseEntity<CountryWithCapitalDto> getLocalizedCountry(@PathVariable String code, @RequestParam Locale locale) {
-        return ResponseEntity.of(service.findDetailedByCodeAndLocale(code, locale));
+        return ResponseEntity.of(facade.findDetailedByCodeAndLocale(code, locale));
     }
 }

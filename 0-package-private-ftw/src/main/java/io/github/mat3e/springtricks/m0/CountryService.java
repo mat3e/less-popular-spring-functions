@@ -6,11 +6,12 @@ import java.util.Locale;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-class CountryService {
+class CountryService implements CountryFacade {
     private final CountryRepository repository;
     private final CitySlugGenerator slugGenerator;
 
-    Optional<CountryWithCapitalDto> findDetailedByCodeAndLocale(String countryCode, Locale locale) {
+    @Override
+    public Optional<CountryWithCapitalDto> findDetailedByCodeAndLocale(String countryCode, Locale locale) {
         return repository.findByCode(countryCode)
                 .filter(country -> country.supports(locale))
                 .map(Country::toDto)
@@ -22,7 +23,8 @@ class CountryService {
                 ));
     }
 
-    Optional<CountryDto> findByCode(String countryCode) {
+    @Override
+    public Optional<CountryDto> findByCode(String countryCode) {
         return repository.findByCode(countryCode).map(Country::toDto);
     }
 }

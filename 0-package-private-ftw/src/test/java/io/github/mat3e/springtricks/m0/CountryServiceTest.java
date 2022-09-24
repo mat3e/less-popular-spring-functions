@@ -14,7 +14,7 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class CountryServiceTest {
 
-    private static final CountryService toTest = new CountryConfiguration().countryService();
+    private static final CountryFacade toTest = new CountryConfiguration().countryFacade();
 
     private static final String SUPPORTED_COUNTRY = "ua";
 

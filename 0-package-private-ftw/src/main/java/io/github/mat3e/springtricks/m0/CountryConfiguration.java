@@ -10,15 +10,16 @@ class CountryConfiguration {
 
     @Bean
     CountryController onDemandController() {
-        return new CountryController(countryService(countryRepository()));
+        return new CountryController(countryFacade(countryRepository()));
     }
 
-    CountryService countryService() {
-        return countryService(new InMemoryCountryRepository());
+    // Look ma, no @Bean!
+    CountryFacade countryFacade() {
+        return countryFacade(new InMemoryCountryRepository());
     }
 
     @Bean
-    CountryService countryService(CountryRepository repository) {
+    CountryFacade countryFacade(CountryRepository repository) {
         return new CountryService(
                 repository,
                 new CitySlugGenerator()
@@ -27,7 +28,7 @@ class CountryConfiguration {
 
     @Bean
     CountryRepository countryRepository() {
-        // Should be Spring Data repository
+        // Temp: should be Spring Data repository
         return new InMemoryCountryRepository();
     }
 }
