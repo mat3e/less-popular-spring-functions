@@ -1,6 +1,7 @@
-package io.github.mat3e.springtricks.m6.country;
+package io.github.mat3e.springtricks.m6.config;
 
 import io.github.mat3e.springtricks.m6.category.CategoryEvent;
+import io.github.mat3e.springtricks.m6.country.CountryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
