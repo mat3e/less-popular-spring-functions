@@ -1,8 +1,13 @@
 package io.github.mat3e.springtricks.m6.country;
 
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
+import io.github.mat3e.springtricks.m6.audit.country.CountryCreated;
+import io.github.mat3e.springtricks.m6.audit.country.CountryEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.domain.AfterDomainEventPublication;
+import org.springframework.data.domain.DomainEvents;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -16,11 +21,13 @@ import static lombok.AccessLevel.PACKAGE;
 @RequiredArgsConstructor(access = PACKAGE)
 class Country {
     static Country newInstance(NewCountry source) {
-        return new Country(
+        var result = new Country(
                 source.code(),
                 source.supportedLocales(),
                 source.capitalCode()
         );
+        result.events.add(new CountryCreated(result.code));
+        return result;
     }
 
     @Id
@@ -30,9 +37,21 @@ class Country {
     private final Set<String> supportedLocales;
     @Column("capital")
     private final String capitalCityCode;
+    @Transient
+    private final Set<CountryEvent> events = new HashSet<>();
 
     boolean supports(Locale locale) {
         return supportedLocales.contains(locale.getLanguage());
+    }
+
+    @DomainEvents
+    Collection<CountryEvent> publish() {
+        return events;
+    }
+
+    @AfterDomainEventPublication
+    void clearEvents() {
+        events.clear();
     }
 
     CountryDto toDto() {
