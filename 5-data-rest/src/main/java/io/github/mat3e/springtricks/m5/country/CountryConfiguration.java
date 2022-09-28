@@ -1,11 +1,11 @@
 package io.github.mat3e.springtricks.m5.country;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import io.github.mat3e.springtricks.config.ConditionalOnModuleNumber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "springtricks.module-number", havingValue = "5")
+@ConditionalOnModuleNumber("5")
 class CountryConfiguration {
 
     @Bean

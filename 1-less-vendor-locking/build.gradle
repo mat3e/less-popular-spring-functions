@@ -1,4 +1,5 @@
 dependencies {
+    implementation project(':config')
     implementation 'org.springframework.boot:spring-boot-starter-jersey'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

@@ -1,5 +1,6 @@
 package io.github.mat3e.springtricks.m6;
 
+import io.github.mat3e.springtricks.config.ConditionalOnModuleNumber;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
+@ConditionalOnModuleNumber("6")
 class LoggingAspect {
     private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 

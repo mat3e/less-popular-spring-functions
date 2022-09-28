@@ -1,12 +1,16 @@
 package io.github.mat3e.springtricks.m6.audit;
 
+import io.github.mat3e.springtricks.config.ConditionalOnModuleNumber;
 import io.github.mat3e.springtricks.m6.audit.category.CategoryEvent;
 import io.github.mat3e.springtricks.m6.audit.country.CountryEvent;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 @Component
+@Configuration
+@ConditionalOnModuleNumber("6")
 public class AuditService {
     @Async
     @EventListener

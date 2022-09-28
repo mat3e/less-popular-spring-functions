@@ -40,6 +40,8 @@ interface TextCategoryVM {
 }
 ```
 
+![shock](https://media.giphy.com/media/Lcn0yF1RcLANG/giphy-downsized-large.gif)
+
 Further read:
 
 * Baeldung: [Spring Data JPA Projections](https://www.baeldung.com/spring-data-jpa-projections)

@@ -1,7 +1,7 @@
 package io.github.mat3e.springtricks.m6.category;
 
+import io.github.mat3e.springtricks.config.ConditionalOnModuleNumber;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.event.ValidatingRepositoryEventListener;
@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 @Configuration
-@ConditionalOnProperty(name = "springtricks.module-number", havingValue = "6")
+@ConditionalOnModuleNumber("6")
 class CategoryConfiguration implements RepositoryRestConfigurer {
     @Override
     public void configureValidatingRepositoryEventListener(ValidatingRepositoryEventListener validatingListener) {

@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(':config')
     implementation project(':0-package-private-ftw')
     implementation project(':1-less-vendor-locking')
     implementation project(':2-validation')

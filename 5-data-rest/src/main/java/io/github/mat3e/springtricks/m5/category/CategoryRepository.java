@@ -1,6 +1,6 @@
 package io.github.mat3e.springtricks.m5.category;
 
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import io.github.mat3e.springtricks.config.ConditionalOnModuleNumber;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -8,8 +8,8 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.List;
 
+@ConditionalOnModuleNumber("5")
 @RepositoryRestResource(excerptProjection = SimpleCategoryVM.class)
-@ConditionalOnProperty(name = "springtricks.module-number", havingValue = "5")
 interface CategoryRepository extends PagingAndSortingRepository<Category, Long> {
 
     @RestResource(path = "active", rel = "active")

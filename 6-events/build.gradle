@@ -1,4 +1,5 @@
 dependencies {
+    implementation project(':config')
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'

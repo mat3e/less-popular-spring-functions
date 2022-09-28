@@ -1,12 +1,12 @@
 package io.github.mat3e.springtricks.m1;
 
+import io.github.mat3e.springtricks.config.ConditionalOnModuleNumber;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConditionalOnProperty(name = "springtricks.module-number", havingValue = "1")
+@ConditionalOnModuleNumber("1")
 class CountryConfiguration extends ResourceConfig {
 
     CountryConfiguration() {

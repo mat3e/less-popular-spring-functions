@@ -1,7 +1,7 @@
-package io.github.mat3e.springtricks;
+package io.github.mat3e.springtricks.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("springtricks")
-record LessPopularSpringConfigProperties(int moduleNumber) {
+public record LessPopularSpringConfigProperties(int moduleNumber) {
 }
