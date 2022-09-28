@@ -8,4 +8,4 @@ spring:
       repositories:
         enabled: false
 
-springtricks.module-number: 6
+springtricks.module-number: 0

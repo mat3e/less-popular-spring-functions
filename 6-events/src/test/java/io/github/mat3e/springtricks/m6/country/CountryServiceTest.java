@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.BDDAssertions.then;
 import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 class CountryServiceTest {
@@ -26,8 +26,7 @@ class CountryServiceTest {
         // when
         var result = toTest.findByCode(unsupportedCountry);
 
-        // then
-        assertThat(result).isEmpty();
+        then(result).isEmpty();
     }
 
     @Test
@@ -35,10 +34,9 @@ class CountryServiceTest {
         // when
         var result = toTest.findByCode(SUPPORTED_COUNTRY);
 
-        // then
-        assertThat(result).isNotEmpty();
-        assertThat(result.get().getCode()).isEqualTo(SUPPORTED_COUNTRY);
-        assertThat(result.get().getSupportedLocales()).contains("pl", "en", "uk");
+        then(result).isNotEmpty();
+        then(result.get().getCode()).isEqualTo(SUPPORTED_COUNTRY);
+        then(result.get().getSupportedLocales()).contains("pl", "en", "uk");
     }
 
     @ParameterizedTest
@@ -47,8 +45,7 @@ class CountryServiceTest {
         // when
         var result = toTest.findDetailedByCodeAndLocale(unsupportedCountry, Locale.ENGLISH);
 
-        // then
-        assertThat(result).isEmpty();
+        then(result).isEmpty();
     }
 
     @Test
@@ -56,8 +53,7 @@ class CountryServiceTest {
         // when
         var result = toTest.findDetailedByCodeAndLocale(SUPPORTED_COUNTRY, Locale.forLanguageTag("ru"));
 
-        // then
-        assertThat(result).isEmpty();
+        then(result).isEmpty();
     }
 
     @ParameterizedTest
@@ -66,12 +62,11 @@ class CountryServiceTest {
         // when
         var result = toTest.findDetailedByCodeAndLocale(SUPPORTED_COUNTRY, locale);
 
-        // then
-        assertThat(result).isNotEmpty();
-        assertThat(result.get().country().code()).isEqualTo(SUPPORTED_COUNTRY);
-        assertThat(result.get().country().supportedLocales()).contains(locale.getLanguage());
-        assertThat(result.get().capital().code()).isEqualToIgnoringCase("KIE");
-        assertThat(result.get().capital().slug()).isEqualTo(expectedSlug);
+        then(result).isNotEmpty();
+        then(result.get().country().code()).isEqualTo(SUPPORTED_COUNTRY);
+        then(result.get().country().supportedLocales()).contains(locale.getLanguage());
+        then(result.get().capital().code()).isEqualToIgnoringCase("KIE");
+        then(result.get().capital().slug()).isEqualTo(expectedSlug);
     }
 
     private static Stream<Arguments> findDetailedByCodeAndLocale_supportedCountry_returnsEmpty() {
@@ -92,12 +87,11 @@ class CountryServiceTest {
         // and
         Optional<CountryWithCapitalDto> newCityFound = toTest.findDetailedByCodeAndLocale(romania, Locale.ENGLISH);
 
-        // then
-        assertThat(newCityFound).isNotEmpty();
-        assertThat(newCityFound.get().country().code()).isEqualTo(romania);
-        assertThat(newCityFound.get().country().capitalCode()).isEqualTo("BUC");
-        assertThat(newCityFound.get().country().supportedLocales()).contains("pl", "en", "ro", "de");
-        assertThat(newCityFound.get().capital().code()).isEqualTo("BUC");
-        assertThat(newCityFound.get().capital().slug()).isNull();
+        then(newCityFound).isNotEmpty();
+        then(newCityFound.get().country().code()).isEqualTo(romania);
+        then(newCityFound.get().country().capitalCode()).isEqualTo("BUC");
+        then(newCityFound.get().country().supportedLocales()).contains("pl", "en", "ro", "de");
+        then(newCityFound.get().capital().code()).isEqualTo("BUC");
+        then(newCityFound.get().capital().slug()).isNull();
     }
 }
